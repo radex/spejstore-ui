@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/command'
 import { CaretSortIcon } from '@radix-ui/react-icons'
 import { cn } from '@/lib/utils'
-import { Textarea } from '@spejstore-ui/components/ui/textarea'
+import { Textarea } from '@/components/ui/textarea'
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (

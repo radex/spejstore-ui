@@ -1,4 +1,4 @@
-import { ModeToggle } from '@spejstore-ui/components/ModeToggle'
+import { ModeToggle } from '@//components/ModeToggle'
 import Link from 'next/link'
 import Image from 'next/image'
 
