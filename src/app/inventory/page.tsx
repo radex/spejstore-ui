@@ -1,12 +1,12 @@
-"use client"
+'use client'
 
-import * as React from "react"
+import * as React from 'react'
 
-import Link from "next/link"
+import Link from 'next/link'
 
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
 // import { FormItem, FormLabel } from "@/components/ui/form"
 import { ModeToggle } from '@/components/ModeToggle'
 import {
@@ -16,27 +16,27 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+} from '@/components/ui/card'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/components/ui/command"
-import { CaretSortIcon } from "@radix-ui/react-icons"
-import { cn } from "@/lib/utils"
-import { Textarea } from "@spejstore-ui/components/ui/textarea"
-
+} from '@/components/ui/command'
+import { CaretSortIcon } from '@radix-ui/react-icons'
+import { cn } from '@/lib/utils'
+import { Textarea } from '@spejstore-ui/components/ui/textarea'
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">{children}</Link>
+    <Link
+      href={href}
+      className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+    >
+      {children}
+    </Link>
   )
 }
 
@@ -53,14 +53,14 @@ function Search() {
   const [isOpen, setOpen] = React.useState(false)
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault()
         setOpen((open) => !open)
       }
     }
 
-    document.addEventListener("keydown", down)
-    return () => document.removeEventListener("keydown", down)
+    document.addEventListener('keydown', down)
+    return () => document.removeEventListener('keydown', down)
   }, [])
 
   return (
@@ -71,9 +71,9 @@ function Search() {
           <Button
             variant="outline"
             className={cn(
-              "relative justify-start text-sm font-normal text-muted-foreground w-[300px] lg:w-[450px]"
-              )}
-              >
+              'relative justify-start text-sm font-normal text-muted-foreground w-[300px] lg:w-[450px]',
+            )}
+          >
             <span className="hidden lg:inline-flex">Search inventory...</span>
             <span className="inline-flex lg:hidden">Search...</span>
             <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
@@ -123,7 +123,7 @@ function CreateThingCard() {
                 variant="outline"
                 role="combobox"
                 className={cn(
-                  "w-[200px] justify-between",
+                  'w-[200px] justify-between',
                   // !field.value && "text-muted-foreground"
                 )}
               >

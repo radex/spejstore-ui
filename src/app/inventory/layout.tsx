@@ -1,9 +1,8 @@
-import { Metadata } from "next"
-
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Inventory Test",
-  description: "Inventory Test",
+  title: 'Inventory Test',
+  description: 'Inventory Test',
 }
 
 interface SettingsLayoutProps {
