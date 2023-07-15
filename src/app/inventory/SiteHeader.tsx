@@ -35,11 +35,11 @@ function MainNav() {
         <Crosshair1Icon className="h-6 w-6" />
         <span className="text-foreground font-bold text-base">Inventory</span>
       </NavLink> */}
-      <Link href="/" className="flex items-center space-x-2">
+      <Link href="/inventory" className="flex items-center space-x-2">
         <Crosshair1Icon className="h-6 w-6" />
         <span className="font-bold">Inventory</span>
       </Link>
-      <NavLink href="/inventory">Add thing</NavLink>
+      <NavLink href="/inventory/new">Add thing</NavLink>
     </nav>
   )
 }
