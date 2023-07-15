@@ -36,10 +36,18 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
+import { CommandList } from 'cmdk'
+
+const members =
+  'ar,arsenicum,cfk,daz,dfgg,drozdziak1,elia,emeryth,enki,gadzber,gawron52,kaneda_,kosa,liryk,mi,micky,mike,minikdo,nietaki,nuke,obst,palid,pl,q3k,qrde,radex,red_labs,rureq,sdomi,vuko,wrx,zuzu'.split(
+    ',',
+  )
 
 export default function InventoryMobileTest() {
   const { toast } = useToast()
   const [isDeleteConfirmOpen, setDeleteConfirmOpen] = React.useState(false)
+  const [isOwnerPickerOpen, setOwnerPickerOpen] = React.useState(false)
+  const [selectedMember, setSelectedMember] = React.useState('arsenicum')
 
   return (
     <div className="w-full h-full flex flex-col">
@@ -89,7 +97,7 @@ export default function InventoryMobileTest() {
           Save
         </Button>
       </div>
-      <div className="flex-1 overflow-x-hidden overflow-y-scroll touch-pan-y [-webkit-overflow-scrolling:touch]">
+      <div className="flex-1 overflow-x-hidden overflow-y-scroll touch-pan-y [-webkit-overflow-scrolling:touch] relative">
         <div className="p-3 grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="name">Name</Label>
@@ -102,7 +110,7 @@ export default function InventoryMobileTest() {
           <div className="grid gap-2">
             <Label htmlFor="owner">Owner</Label>
             {/* <Input id="owner" placeholder="(optional) Item owner" /> */}
-            <Popover>
+            <Popover open={isOwnerPickerOpen} onOpenChange={setOwnerPickerOpen}>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
@@ -112,20 +120,28 @@ export default function InventoryMobileTest() {
                     // !field.value && "text-muted-foreground"
                   )}
                 >
-                  arsenicum
+                  {selectedMember}
                   <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="p-0 w-screen sm:w-[400px]">
+              <PopoverContent className="p-0 w-[calc(100vw-2*0.75rem)] ml-3 sm:w-[400px]">
                 <Command>
-                  <CommandInput placeholder="Search users" />
-                  <CommandEmpty>No user found.</CommandEmpty>
-                  <CommandGroup>
-                    <CommandItem>radex</CommandItem>
-                    <CommandItem>palid</CommandItem>
-                    <CommandItem>vuko</CommandItem>
-                    <CommandItem>arsenicum</CommandItem>
-                  </CommandGroup>
+                  <CommandInput placeholder="Search members" />
+                  <CommandEmpty>No member found.</CommandEmpty>
+                  <CommandList className="max-h-52 overflow-y-auto">
+                    {members.map((member) => (
+                      <CommandItem
+                        key={member}
+                        value={member}
+                        onSelect={(value) => {
+                          setSelectedMember(value)
+                          setOwnerPickerOpen(false)
+                        }}
+                      >
+                        {member}
+                      </CommandItem>
+                    ))}
+                  </CommandList>
                 </Command>
               </PopoverContent>
             </Popover>
