@@ -12,7 +12,7 @@ interface SettingsLayoutProps {
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <>
-      <div className="flex flex-row">
+      <div className="flex flex-row max-w-full">
         <div className="flex-1">{children}</div>
       </div>
     </>

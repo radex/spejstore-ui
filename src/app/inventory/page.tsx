@@ -71,7 +71,7 @@ function Search() {
           <Button
             variant="outline"
             className={cn(
-              'relative justify-start text-sm font-normal text-muted-foreground w-[300px] lg:w-[450px]',
+              'relative justify-start text-sm font-normal text-muted-foreground w-[200px] md:w-[300px] lg:w-[450px]',
             )}
           >
             <span className="hidden lg:inline-flex">Search inventory...</span>
@@ -98,9 +98,25 @@ function Search() {
   )
 }
 
+function SiteHeader() {
+  return (
+    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur flex flex-row justify-center">
+      <div className="flex-1 flex flex-row h-16 items-center px-4 max-w-[1280px]">
+        <div className="flex-1">
+          <MainNav />
+        </div>
+        <Search />
+        <div className="flex-1 flex flex-row justify-end">
+          <ModeToggle />
+        </div>
+      </div>
+    </header>
+  )
+}
+
 function CreateThingCard() {
   return (
-    <Card className="w-[800px]">
+    <Card className="w-full md:w-[750px] xl:w-[900px]">
       <CardHeader>
         <CardTitle className="text-2xl">Create item</CardTitle>
         {/* <CardDescription>Card Description</CardDescription> */}
@@ -156,19 +172,41 @@ function CreateThingCard() {
 export default function IventoryTestPage() {
   return (
     <>
-      <div className="border-b">
-        <div className="flex flex-row h-16 items-center px-4">
-          <div className="flex-1">
-            <MainNav />
-          </div>
-          <Search />
-          <div className="flex-1 flex flex-row justify-end">
-            <ModeToggle />
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-row justify-center p-6">
+      <SiteHeader />
+      <div className="flex flex-row justify-center py-6 px-2">
         <CreateThingCard />
+      </div>
+      <div className="flex flex-row justify-center py-6 px-2">
+        <Card className="w-full md:w-[750px] xl:w-[900px]">
+          <CardHeader>
+            <CardTitle>Hello</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {Array(5)
+              .fill(0)
+              .map((_, i) => (
+                <p key={i} className="leading-7 [&:not(:first-child)]:mt-6">
+                  Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque
+                  dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies.
+                  Curabitur et ligula. Ut molestie a, ultricies porta urna. Vestibulum commodo
+                  volutpat a, convallis ac, laoreet enim. Phasellus fermentum in, dolor.
+                  Pellentesque facilisis. Nulla imperdiet sit amet magna. Vestibulum dapibus, mauris
+                  nec malesuada fames ac turpis velit, rhoncus eu, luctus et interdum adipiscing
+                  wisi. Aliquam erat ac ipsum. Integer aliquam purus. Quisque lorem tortor fringilla
+                  sed, vestibulum id, eleifend justo vel bibendum sapien massa ac turpis faucibus
+                  orci luctus non, consectetuer lobortis quis, varius in, purus. Integer ultrices
+                  posuere cubilia Curae, Nulla ipsum dolor lacus, suscipit adipiscing. Cum sociis
+                  natoque penatibus et ultrices volutpat. Nullam wisi ultricies a, gravida vitae,
+                  dapibus risus ante sodales lectus blandit eu, tempor diam pede cursus vitae,
+                  ultricies eu, faucibus quis, porttitor eros cursus lectus, pellentesque eget,
+                  bibendum a, gravida ullamcorper quam. Nullam viverra consectetuer. Quisque cursus
+                  et, porttitor risus. Aliquam sem. In hendrerit nulla quam nunc, accumsan congue.
+                  Lorem ipsum primis in nibh vel risus. Sed vel lectus. Ut sagittis, ipsum dolor
+                  quam.{' '}
+                </p>
+              ))}
+          </CardContent>
+        </Card>
       </div>
     </>
   )
