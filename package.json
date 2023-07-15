@@ -8,7 +8,7 @@
     "start": "next start",
     "ci:check": "concurrently -n 'test,lint,build' -c 'auto' 'npm run test' 'npm run lint' 'npm run build' --kill-others-on-fail",
     "lint": "next lint",
-    "test": "vitest",
+    "test": "vitest run",
     "prettier": "prettier --write src"
   },
   "dependencies": {
