@@ -15,8 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
         />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

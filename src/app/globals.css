@@ -84,5 +84,25 @@ html {
 body {
   -webkit-text-size-adjust: none;
   user-select: none;
-  touch-action: pan-x pan-y;
+}
+
+html,
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: inherit;
+  cursor: default;
+}
+
+button {
+  /* touch-action: 'manipulation'; */
 }
