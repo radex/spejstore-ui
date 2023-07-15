@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "up": "yarn",
-    "ci:check": "concurrently -n 'test,lint,build' -c 'auto' 'npm run test' 'npm run lint' 'npm run build' --kill-others-on-fail",
-    "ci": "npm run ci:check",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "ci:check": "concurrently -n 'test,lint,build' -c 'auto' 'npm run test' 'npm run lint' 'npm run build' --kill-others-on-fail",
     "lint": "next lint",
     "test": "vitest",
     "prettier": "prettier --write src"
