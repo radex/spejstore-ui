@@ -15,6 +15,7 @@ import {
   CommandItem,
 } from '@/components/ui/command'
 import { cn } from '@/lib/utils'
+import { Crosshair1Icon } from '@radix-ui/react-icons'
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
@@ -30,9 +31,15 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
 function MainNav() {
   return (
     <nav className="flex items-center space-x-6 pl-3">
-      <NavLink href="/inventory">Browse</NavLink>
+      {/* <NavLink href="/inventory">
+        <Crosshair1Icon className="h-6 w-6" />
+        <span className="text-foreground font-bold text-base">Inventory</span>
+      </NavLink> */}
+      <Link href="/" className="flex items-center space-x-2">
+        <Crosshair1Icon className="h-6 w-6" />
+        <span className="font-bold">Inventory</span>
+      </Link>
       <NavLink href="/inventory">Add thing</NavLink>
-      <NavLink href="/inventory">How to use</NavLink>
     </nav>
   )
 }
@@ -59,17 +66,17 @@ function Search() {
           <Button
             variant="outline"
             className={cn(
-              'relative justify-start text-sm font-normal text-muted-foreground w-[200px] md:w-[300px] lg:w-[450px]',
+              'relative justify-start text-sm font-normal text-muted-foreground w-fit sm:w-[200px] md:w-[300px] lg:w-[450px]',
             )}
           >
-            <span className="hidden lg:inline-flex">Search inventory...</span>
-            <span className="inline-flex lg:hidden">Search...</span>
+            <span className="hidden md:inline-flex">Search Hackerspace...</span>
+            <span className="inline-flex md:hidden">Search...</span>
             <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
               <span className="text-xs">⌘</span>K
             </kbd>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="p-0 w-[450px]" sideOffset={-40}>
+        <PopoverContent className="p-0 w-screen sm:w-[450px]" sideOffset={-40}>
           <Command>
             <CommandInput placeholder="Search inventory" />
             <CommandEmpty>No item found.</CommandEmpty>
@@ -94,7 +101,7 @@ export default function SiteHeader() {
           <MainNav />
         </div>
         <Search />
-        <div className="flex-1 flex flex-row justify-end">
+        <div className="lg:flex-1 pl-4 flex flex-row justify-end">
           <ModeToggle />
         </div>
       </div>

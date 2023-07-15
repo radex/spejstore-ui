@@ -60,7 +60,7 @@ function CreateThingCard() {
                 <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0 w-[400px]">
+            <PopoverContent className="p-0 w-screen sm:w-[400px]">
               <Command>
                 <CommandInput placeholder="Search users" />
                 <CommandEmpty>No user found.</CommandEmpty>
